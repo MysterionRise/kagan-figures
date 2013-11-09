@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 
-<Group id="Kagan Test" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.mystic.kagan.Controller">
+<Group id="Kagan Test" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.mystic.kagan.Controller" fx:id="rootGroup">
   <children>
     <Button layoutX="639.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit" />
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Start Kagan Test" />
