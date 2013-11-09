@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.Group?>
-<Group xmlns:fx="http://javafx.com/fxml/1" id="Kagan Test" xmlns="http://javafx.com/javafx/2.2"
-       fx:controller="org.mystic.kagan.Controller" fx:id="rootGroup">
-    <children>
-        <Button layoutX="639.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit"/>
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Start Kagan Test" onMouseClicked="#startKaganTest" fx:id="startTestButton"/>
-    </children>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+
+<Group id="Kagan Test" fx:id="rootGroup" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.mystic.kagan.Controller">
+  <children>
+    <Button layoutX="639.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit" />
+    <Button fx:id="startTestButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#startKaganTest" text="Start Kagan Test" />
+    <TextArea editable="false" layoutX="150.0" layoutY="150.0" prefWidth="300.0" fx:id="instructionText"
+              text="Тест Кагана (1966)Вам будет показано 8 изображений и 1 оригинал.Вам необходимо выбрать то изображение, которое больше всего похоже на эталонное. Выберите его кликом мыши.&#10;&#10;Чтобы начать тест нажмите кнопку &quot;Start Kagan Test&quot;" wrapText="true" />
+  </children>
 </Group>
