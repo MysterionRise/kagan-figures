@@ -10,7 +10,6 @@
   <children>
     <Button layoutX="639.0" layoutY="565.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit" />
     <Button fx:id="startTestButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#startKaganTest" text="Start Kagan Test" />
-    <TextArea editable="false" layoutX="150.0" layoutY="150.0" prefWidth="300.0" fx:id="instructionText"
-              text="Тест Кагана (1966)Вам будет показано 8 изображений и 1 оригинал.Вам необходимо выбрать то изображение, которое больше всего похоже на эталонное. Выберите его кликом мыши.&#10;&#10;Чтобы начать тест нажмите кнопку &quot;Start Kagan Test&quot;" wrapText="true" />
+    <TextArea fx:id="instructionText" editable="false" layoutX="150.0" layoutY="150.0" prefHeight="250.0" prefWidth="400.0" text="Сейчас Вы увидите одну картинку и несколько похожих на нее. Вам необходимо найти на этом рисунке точно такую же картинку, как та, что вверху, и выбрать её кликом мыши. Для первоначальной тренировки Вам будут показаны две демонстрационные карточки. Далее задачи будут совсем не такие простые. Найдите как можно быстрее картинку, максимально похожую на эту вверху, и сразу же выберете ей. После Вашего выбора, следующее задание будет представлено Вам автоматически." wrapText="true" />
   </children>
 </Group>
