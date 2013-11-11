@@ -10,12 +10,11 @@ import javafx.scene.image.ImageView;
 
 public class Controller {
 
+    private static final String TRAINING_SESSION_PATH = "/compare/training-session";
     @FXML
     Group rootGroup;
-
     @FXML
     Button startTestButton;
-
     @FXML
     TextArea instructionText;
 
@@ -29,7 +28,10 @@ public class Controller {
     private void startKaganTest() {
         startTestButton.setDisable(true);
         instructionText.setVisible(false);
-        final String url = Controller.class.getResource("/compare/training-session/1/0.jpg").toString();
+        for (int i = 0; i <= 8; ++i) {
+
+        }
+        final String url = Controller.class.getResource(TRAINING_SESSION_PATH + "/1/0.jpg").toString();
         ImageView sample3 = new ImageView(new Image(url));
         sample3.setLayoutX(294);
         sample3.setLayoutY(25);
