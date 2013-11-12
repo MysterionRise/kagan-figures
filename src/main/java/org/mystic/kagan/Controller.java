@@ -9,11 +9,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Controller {
 
     private static final String TRAINING_SESSION_PATH = "/compare/training-session";
     private static final String MAIN_SESSION_PATH = "/compare/main-session";
+    private final double[] x = {294, 14, 190, 366, 537, 14, 190, 366, 537};
+    private final double[] y = {25, 185, 185, 185, 185, 367, 367, 367, 367};
     @FXML
     Group rootGroup;
     @FXML
@@ -23,19 +28,29 @@ public class Controller {
 
     @FXML
     private void closeWindow() {
-        System.out.println(rootGroup.getChildren().size());
         System.exit(0);
     }
 
-    private final double[] x = {294, 14, 190, 366, 537, 14, 190, 366, 537};
-    private final double[] y = {25, 185, 185, 185, 185, 367, 367, 367, 367};
-
     @FXML
     private void startKaganTest() {
+        final int[] steps = {1};
         startTestButton.setDisable(true);
         instructionText.setVisible(false);
+        final List<ImageView> images = new ArrayList<ImageView>(9);
+        goNextStep(steps, images);
+    }
+
+    private void goNextStep(final int[] steps, final List<ImageView> images) {
+        if (steps[0] > 14) {
+            return;
+        }
         for (int i = 0; i <= 8; ++i) {
-            final String url = Controller.class.getResource(TRAINING_SESSION_PATH + "/1/" + i + ".jpg").toString();
+            String url;
+            if (steps[0] <= 2) {
+                url = Controller.class.getResource(TRAINING_SESSION_PATH + "/" + steps[0] + "/" + i + ".jpg").toString();
+            } else {
+                url = Controller.class.getResource(MAIN_SESSION_PATH + "/" + (steps[0] - 2) + "/" + i + ".jpg").toString();
+            }
             ImageView imageView = new ImageView(new Image(url));
             imageView.setLayoutX(x[i]);
             imageView.setLayoutY(y[i]);
@@ -50,11 +65,18 @@ public class Controller {
                     final double sceneY = mouseEvent.getSceneY();
                     for (int j = 1; j <= 8; ++j) {
                         if (sceneX >= x[j] && sceneX <= x[j] + 200 && sceneY >= y[j] && sceneY <= y[j] + 150) {
-                            System.out.println("Clicked on figure number" + j);
+                            steps[0]++;
+                            System.out.println("Clicked on figure number " + j);
+                            for (ImageView i : images) {
+                                rootGroup.getChildren().remove(i);
+                            }
+                            images.clear();
+                            goNextStep(steps, images);
                         }
                     }
                 }
             });
+            images.add(imageView);
             rootGroup.getChildren().add(imageView);
         }
     }
