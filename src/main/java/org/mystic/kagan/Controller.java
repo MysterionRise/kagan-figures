@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -30,6 +31,8 @@ public class Controller {
     TextArea instructionText;
     @FXML
     TextField userName;
+    @FXML
+    Label label;
     private PrintWriter out;
     private String login;
 
@@ -72,6 +75,7 @@ public class Controller {
             if (steps[0] <= 2) {
                 url = Controller.class.getResource(TRAINING_SESSION_PATH + "/" + steps[0] + "/" + i + ".jpg").toString();
             } else {
+                label.setVisible(false);
                 url = Controller.class.getResource(MAIN_SESSION_PATH + "/" + (steps[0] - 2) + "/" + i + ".jpg").toString();
             }
             ImageView imageView = new ImageView(new Image(url));
@@ -88,6 +92,24 @@ public class Controller {
                     final double sceneY = mouseEvent.getSceneY();
                     for (int j = 1; j <= 8; ++j) {
                         if (sceneX >= x[j] && sceneX <= x[j] + 230 && sceneY >= y[j] && sceneY <= y[j] + 230) {
+                            if (steps[0] == 1) {
+                                if (j == 1) {
+                                    label.setText("Вы выбрали правильный ответ!");
+                                    label.setVisible(true);
+                                } else {
+                                    label.setText("Вы выбрали НЕправильный ответ!");
+                                    label.setVisible(true);
+                                }
+                            }
+                            if (steps[0] == 2) {
+                                if (j == 5) {
+                                    label.setText("Вы выбрали правильный ответ!");
+                                    label.setVisible(true);
+                                } else {
+                                    label.setText("Вы выбрали НЕправильный ответ!");
+                                    label.setVisible(true);
+                                }
+                            }
                             steps[0]++;
                             out.println("Выбрана фигура № " + j + "; временной интервал = " + (System.currentTimeMillis() - startTime) + " мс");
                             for (ImageView i : images) {
