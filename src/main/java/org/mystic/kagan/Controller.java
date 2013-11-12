@@ -1,11 +1,13 @@
 package org.mystic.kagan;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 
 public class Controller {
@@ -34,14 +36,20 @@ public class Controller {
         instructionText.setVisible(false);
         for (int i = 0; i <= 8; ++i) {
             final String url = Controller.class.getResource(TRAINING_SESSION_PATH + "/1/" + i + ".jpg").toString();
-            ImageView sample3 = new ImageView(new Image(url));
-            sample3.setLayoutX(x[i]);
-            sample3.setLayoutY(y[i]);
-            sample3.setFitWidth(200);
-            sample3.setFitHeight(150);
-            sample3.setPreserveRatio(true);
-            sample3.setPickOnBounds(true);
-            rootGroup.getChildren().add(sample3);
+            ImageView imageView = new ImageView(new Image(url));
+            imageView.setLayoutX(x[i]);
+            imageView.setLayoutY(y[i]);
+            imageView.setFitWidth(200);
+            imageView.setFitHeight(150);
+            imageView.setPreserveRatio(true);
+            imageView.setPickOnBounds(true);
+            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    System.out.println(mouseEvent.getSceneX() + " " + mouseEvent.getSceneY());
+                }
+            });
+            rootGroup.getChildren().add(imageView);
         }
     }
 }
