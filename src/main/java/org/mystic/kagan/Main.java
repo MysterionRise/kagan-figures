@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Kagan Test");
-        primaryStage.setScene(new Scene(root, 700, 600));
+        primaryStage.setScene(new Scene(root, 1000, 800));
         primaryStage.show();
     }
 }
