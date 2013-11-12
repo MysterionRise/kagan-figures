@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class Controller {
 
     private static final String TRAINING_SESSION_PATH = "/compare/training-session";
     private static final String MAIN_SESSION_PATH = "/compare/main-session";
-    private final double[] x = {500, 10, 260, 510, 760, 10, 260, 510, 760};
+    private final double[] x = {400, 10, 260, 510, 760, 10, 260, 510, 760};
     private final double[] y = {20, 270, 270, 270, 270, 520, 520, 520, 520};
     @FXML
     Group rootGroup;
@@ -28,6 +30,7 @@ public class Controller {
     TextArea instructionText;
     @FXML
     TextField userName;
+    private PrintWriter out;
     private String login;
 
     @FXML
@@ -38,18 +41,22 @@ public class Controller {
     @FXML
     private void closeWindow() {
         System.exit(0);
+        out.flush();
+        out.close();
     }
 
     @FXML
-    private void startKaganTest() {
+    private void startKaganTest() throws FileNotFoundException {
         if (userName.getText().equalsIgnoreCase("Введите свое имя") || userName.getText().length() == 0) {
 
         } else {
+            out = new PrintWriter((userName.getText() + (System.currentTimeMillis() % 100000)) + ".txt");
             this.login = userName.getText();
-            System.out.println(login);
+            out.println("Имя респондента - " + login);
             final int[] steps = {1};
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
+            userName.setVisible(false);
             final List<ImageView> images = new ArrayList<ImageView>(9);
             goNextStep(steps, images);
         }
@@ -59,6 +66,7 @@ public class Controller {
         if (steps[0] > 14) {
             return;
         }
+        final long startTime = System.currentTimeMillis();
         for (int i = 0; i <= 8; ++i) {
             String url;
             if (steps[0] <= 2) {
@@ -69,8 +77,8 @@ public class Controller {
             ImageView imageView = new ImageView(new Image(url));
             imageView.setLayoutX(x[i]);
             imageView.setLayoutY(y[i]);
-            imageView.setFitWidth(200);
-            imageView.setFitHeight(200);
+            imageView.setFitWidth(230);
+            imageView.setFitHeight(230);
             imageView.setPreserveRatio(true);
             imageView.setPickOnBounds(true);
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -79,9 +87,9 @@ public class Controller {
                     final double sceneX = mouseEvent.getSceneX();
                     final double sceneY = mouseEvent.getSceneY();
                     for (int j = 1; j <= 8; ++j) {
-                        if (sceneX >= x[j] && sceneX <= x[j] + 200 && sceneY >= y[j] && sceneY <= y[j] + 200) {
+                        if (sceneX >= x[j] && sceneX <= x[j] + 230 && sceneY >= y[j] && sceneY <= y[j] + 230) {
                             steps[0]++;
-                            System.out.println("Clicked on figure number " + j);
+                            out.println("Выбрана фигура № " + j + "; временной интервал = " + (System.currentTimeMillis() - startTime) + " мс");
                             for (ImageView i : images) {
                                 rootGroup.getChildren().remove(i);
                             }
