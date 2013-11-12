@@ -46,7 +46,13 @@ public class Controller {
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    System.out.println(mouseEvent.getSceneX() + " " + mouseEvent.getSceneY());
+                    final double sceneX = mouseEvent.getSceneX();
+                    final double sceneY = mouseEvent.getSceneY();
+                    for (int j = 1; j <= 8; ++j) {
+                        if (sceneX >= x[j] && sceneX <= x[j] + 200 && sceneY >= y[j] && sceneY <= y[j] + 150) {
+                            System.out.println("Clicked on figure number" + j);
+                        }
+                    }
                 }
             });
             rootGroup.getChildren().add(imageView);
