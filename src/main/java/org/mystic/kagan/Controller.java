@@ -40,9 +40,9 @@ public class Controller {
 
     @FXML
     private void closeWindow() {
-        System.exit(0);
         out.flush();
         out.close();
+        System.exit(0);
     }
 
     @FXML
