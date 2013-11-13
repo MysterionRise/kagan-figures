@@ -16,7 +16,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Controller {
 
     private static final String TRAINING_SESSION_PATH = "/compare/training-session";
@@ -60,7 +59,7 @@ public class Controller {
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
             userName.setVisible(false);
-            final List<ImageView> images = new ArrayList<ImageView>(9);
+            final List<ImageView> images = new ArrayList<>(9);
             goNextStep(steps, images);
         }
     }
