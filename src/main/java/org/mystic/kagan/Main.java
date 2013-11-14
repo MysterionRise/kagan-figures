@@ -16,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Group root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Group root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Kagan Test");
         primaryStage.setScene(new Scene(root, 1000, 750));
         primaryStage.show();
