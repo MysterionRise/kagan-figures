@@ -110,7 +110,7 @@ public class Controller {
                                 }
                             }
                             steps[0]++;
-                            out.println("Выбрана фигура № " + j + "; временной интервал = " + (System.currentTimeMillis() - startTime) + " мс");
+                            out.println(j + " \t" + (System.currentTimeMillis() - startTime) + " \t");
                             for (ImageView i : images) {
                                 rootGroup.getChildren().remove(i);
                             }
