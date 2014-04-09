@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Group root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Kagan Test");
-        primaryStage.setScene(new Scene(root, 1000, 750));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 }

@@ -20,8 +20,8 @@ public class Controller {
 
     private static final String TRAINING_SESSION_PATH = "/compare/training-session";
     private static final String MAIN_SESSION_PATH = "/compare/main-session";
-    private final double[] x = {400, 10, 260, 510, 760, 10, 260, 510, 760};
-    private final double[] y = {20, 270, 270, 270, 270, 520, 520, 520, 520};
+    private final double[] x = {400, 10, 180, 360, 540, 10, 180, 360, 540};
+    private final double[] y = {20, 200, 200, 200, 200, 400, 400, 400, 400};
     @FXML
     Group rootGroup;
     @FXML
@@ -80,8 +80,8 @@ public class Controller {
             ImageView imageView = new ImageView(new Image(url));
             imageView.setLayoutX(x[i]);
             imageView.setLayoutY(y[i]);
-            imageView.setFitWidth(230);
-            imageView.setFitHeight(230);
+            imageView.setFitWidth(170);
+            imageView.setFitHeight(170);
             imageView.setPreserveRatio(true);
             imageView.setPickOnBounds(true);
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -90,7 +90,7 @@ public class Controller {
                     final double sceneX = mouseEvent.getSceneX();
                     final double sceneY = mouseEvent.getSceneY();
                     for (int j = 1; j <= 8; ++j) {
-                        if (sceneX >= x[j] && sceneX <= x[j] + 230 && sceneY >= y[j] && sceneY <= y[j] + 230) {
+                        if (sceneX >= x[j] && sceneX <= x[j] + 170 && sceneY >= y[j] && sceneY <= y[j] + 170) {
                             if (steps[0] == 1) {
                                 if (j == 1) {
                                     label.setText("Вы выбрали правильный ответ!");
