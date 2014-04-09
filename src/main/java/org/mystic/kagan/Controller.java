@@ -59,7 +59,7 @@ public class Controller {
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
             userName.setVisible(false);
-            final List<ImageView> images = new ArrayList<>(9);
+            final List<ImageView> images = new ArrayList<ImageView>(9);
             goNextStep(steps, images);
         }
     }
