@@ -1,7 +1,7 @@
 The Matching Familiar Figures Test, MFFT
 =============
 
-The Matching Familiar Figures Test, made in 1966, used to diagnose cognitive style impulsivity - reflexivity.
+The Matching Familiar Figures Test, invented by [Jerome Kagan] in 1966, used to diagnose cognitive style impulsivity - reflexivity.
 
 Example of demo training case
 
@@ -36,4 +36,5 @@ $ mvn clean jfx:web
 ```
 
 [demo]: https://github.com/MysterionRise/kagan-figures/blob/master/src/main/resources/compare/DemoFullImage.png?raw=true "Demo"
+[Jerome Kagan]:  http://en.wikipedia.org/wiki/Jerome_Kagan
 
