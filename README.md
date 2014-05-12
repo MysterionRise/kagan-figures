@@ -15,6 +15,8 @@ JDK 8 required for building
 $ mvn clean jfx:jar
 ```
 
+Then you could run jar file from `target/jfx/app`
+
 ### How to run:
 
 ```sh
