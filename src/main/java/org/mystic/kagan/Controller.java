@@ -54,7 +54,7 @@ public class Controller {
         } else {
             out = new PrintWriter((userName.getText() + (System.currentTimeMillis() % 100000)) + ".txt");
             this.login = userName.getText();
-            out.println("Имя респондента - " + login);
+            out.println(login);
             final int[] steps = {1};
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
