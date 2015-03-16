@@ -42,8 +42,10 @@ public class Controller {
 
     @FXML
     private void closeWindow() {
-        out.flush();
-        out.close();
+        if (null != out) {
+            out.flush();
+            out.close();
+        }
         System.exit(0);
     }
 
@@ -59,7 +61,7 @@ public class Controller {
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
             userName.setVisible(false);
-            final List<ImageView> images = new ArrayList<ImageView>(9);
+            final List<ImageView> images = new ArrayList<>(9);
             goNextStep(steps, images);
         }
     }
