@@ -31,35 +31,65 @@ public class Controller {
     @FXML
     TextField userName;
     @FXML
+    TextField gender;
+    @FXML
+    TextField nationality;
+    @FXML
+    TextField email;
+    @FXML
     Label label;
     private PrintWriter out;
     private String login;
 
     @FXML
-    private void clearTextField() {
+    private void clearUserName() {
         userName.clear();
     }
 
     @FXML
+    private void clearNationality() {
+        nationality.clear();
+    }
+
+    @FXML
+    private void clearGender() {
+        gender.clear();
+    }
+
+    @FXML
+    private void clearEmail() {
+        email.clear();
+    }
+
+    @FXML
     private void closeWindow() {
-        out.flush();
-        out.close();
+        if (null != out) {
+            out.flush();
+            out.close();
+        }
         System.exit(0);
     }
 
     @FXML
     private void startKaganTest() throws FileNotFoundException {
-        if (userName.getText().equalsIgnoreCase("Введите свое имя") || userName.getText().length() == 0) {
+        if ((userName.getText().startsWith("Enter your") || userName.getText().length() == 0) ||
+                (gender.getText().equalsIgnoreCase("Enter your") || gender.getText().length() == 0) ||
+                (nationality.getText().equalsIgnoreCase("Enter your") || nationality.getText().length() == 0)) {
 
         } else {
             out = new PrintWriter((userName.getText() + (System.currentTimeMillis() % 100000)) + ".txt");
             this.login = userName.getText();
-            out.println(login);
+            out.println("Name: " + login);
+            out.println("Nationality: " + nationality.getText());
+            out.println("Gender: " + gender.getText());
+            out.println("Email: " + email.getText());
             final int[] steps = {1};
             startTestButton.setDisable(true);
             instructionText.setVisible(false);
             userName.setVisible(false);
-            final List<ImageView> images = new ArrayList<ImageView>(9);
+            gender.setVisible(false);
+            nationality.setVisible(false);
+            final List<ImageView> images = new ArrayList<>(9);
             goNextStep(steps, images);
         }
     }
@@ -93,19 +123,19 @@ public class Controller {
                         if (sceneX >= x[j] && sceneX <= x[j] + 170 && sceneY >= y[j] && sceneY <= y[j] + 170) {
                             if (steps[0] == 1) {
                                 if (j == 1) {
-                                    label.setText("Вы выбрали правильный ответ!");
+                                    label.setText("You choose correct answer!");
                                     label.setVisible(true);
                                 } else {
-                                    label.setText("Вы выбрали НЕправильный ответ!");
+                                    label.setText("You choose UNcorrect answer!");
                                     label.setVisible(true);
                                 }
                             }
                             if (steps[0] == 2) {
                                 if (j == 5) {
-                                    label.setText("Вы выбрали правильный ответ!");
+                                    label.setText("You choose correct answer!");
                                     label.setVisible(true);
                                 } else {
-                                    label.setText("Вы выбрали НЕправильный ответ!");
+                                    label.setText("You choose UNcorrect answer!");
                                     label.setVisible(true);
                                 }
                             }
