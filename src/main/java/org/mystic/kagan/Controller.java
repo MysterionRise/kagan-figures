@@ -89,6 +89,7 @@ public class Controller {
             userName.setVisible(false);
             gender.setVisible(false);
             nationality.setVisible(false);
+	    email.setVisible(false);
             final List<ImageView> images = new ArrayList<>(9);
             goNextStep(steps, images);
         }
