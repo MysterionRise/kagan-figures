@@ -52,7 +52,7 @@ public class Controller {
     @FXML
     private void startKaganTest() throws FileNotFoundException {
         if (userName.getText().equalsIgnoreCase("Введите свое имя") || userName.getText().length() == 0) {
-
+            
         } else {
             out = new PrintWriter((userName.getText() + (System.currentTimeMillis() % 100000)) + ".txt");
             this.login = userName.getText();
@@ -68,6 +68,8 @@ public class Controller {
 
     private void goNextStep(final int[] steps, final List<ImageView> images) {
         if (steps[0] > 14) {
+            instructionText.setVisible(true);
+            instructionText.setText("Вы закончили выполнение теста!");
             return;
         }
         final long startTime = System.currentTimeMillis();
