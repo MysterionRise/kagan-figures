@@ -16,18 +16,17 @@ compiled/
 # use glob syntax.
 syntax: glob
 *.ser
-*.class
 *~
 *.bak
 #*.off
 *.old
+*.jar
 
 # eclipse conf file
 .settings
 .classpath
 .project
 .manager
-.scala_dependencies
 
 # idea
 .idea
@@ -56,19 +55,10 @@ build.log
 #  ^\.pc/
 
 #SHITTY output not in target directory
-build.log
 =======
-*.class
-*.log
 .cache
 # sbt specific
-dist/*
-target/
-lib_managed/
-src_managed/
-project/boot/
-project/plugins/project/
 out/
 
 # Scala-IDE specific
-.scala_dependencies
+/.gradle/

@@ -7,33 +7,28 @@ Example of demo training case
 
 ![alt text][demo]
 
-JDK 8 required for building
 
-### How to build:
-
-```sh
-$ mvn clean jfx:jar
-```
-
-Then you could run jar file from `target/jfx/app`
-
-### How to run:
+### How to run locally:
 
 ```sh
-$ mvn jfx:run
+$ gradlew run
 ```
+
+### How to build Jar executable:
+
+```sh
+$ gradlew assemble
+```
+
+You could later run jar (JDK is required) located in `build/distributions`
 
 ### How to build native package:
 
 ```sh
-$ mvn clean jfx:native
+$ gradlew jlink
 ```
 
-### How to build web package:
-
-```sh
-$ mvn clean jfx:web
-```
+You could later run executable located in `build/image/bin`
 
 [demo]: https://github.com/MysterionRise/kagan-figures/blob/master/src/main/resources/compare/DemoFullImage.png?raw=true "Demo"
 [Jerome Kagan]:  http://en.wikipedia.org/wiki/Jerome_Kagan

@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.Group?>
+<?import javafx.scene.text.Font?>
 <Group id="Kagan Test" fx:id="rootGroup" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
        fx:controller="org.mystic.kagan.Controller">
-    <children>
-        <Button layoutX="250.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit"/>
-        <Button fx:id="startTestButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
-                onMouseClicked="#startKaganTest" prefWidth="200.0" text="Start Kagan Test"/>
-        <TextArea fx:id="instructionText" editable="false" layoutX="150.0" layoutY="150.0" prefHeight="250.0"
-                  prefWidth="400.0"
-                  text="Сейчас Вы увидите одну картинку и несколько похожих на нее. Вам необходимо найти на этом рисунке точно такую же картинку, как та, что вверху, и выбрать её кликом мыши. Для первоначальной тренировки Вам будут показаны две демонстрационные карточки. Далее задачи будут совсем не такие простые. Найдите как можно быстрее картинку, максимально похожую на эту вверху, и сразу же выберете ей. После Вашего выбора, следующее задание будет представлено Вам автоматически."
-                  wrapText="true"/>
-        <TextField fx:id="userName" layoutX="14.0" layoutY="50.0" onMouseClicked="#clearTextField" prefWidth="200.0"
-                   text="Введите свое имя"/>
-        <Label layoutX="50.0" layoutY="75.0" prefWidth="400.0" text="" fx:id="label" visible="false">
-            <font>
-                <Font size="15.0"/>
-            </font>
-        </Label>
-    </children>
+    <Button layoutX="250.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Exit"/>
+    <Button fx:id="startTestButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+            onMouseClicked="#startKaganTest" prefWidth="200.0" text="Start Kagan Test"/>
+    <TextArea fx:id="instructionText" editable="false" layoutX="150.0" layoutY="150.0" prefHeight="250.0"
+              prefWidth="400.0"
+              text="Сейчас Вы увидите одну картинку и несколько похожих на нее. Вам необходимо найти на этом рисунке точно такую же картинку, как та, что вверху, и выбрать её кликом мыши. Для первоначальной тренировки Вам будут показаны две демонстрационные карточки. Далее задачи будут совсем не такие простые. Найдите как можно быстрее картинку, максимально похожую на эту вверху, и сразу же выберете ей. После Вашего выбора, следующее задание будет представлено Вам автоматически."
+              wrapText="true"/>
+    <TextField fx:id="userName" layoutX="14.0" layoutY="50.0" onMouseClicked="#clearTextField" prefWidth="200.0"
+               text="Введите свое имя"/>
+    <Label layoutX="50.0" layoutY="75.0" prefWidth="400.0" fx:id="label" visible="false">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
 </Group>

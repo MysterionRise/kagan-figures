@@ -88,39 +88,36 @@ public class Controller {
             imageView.setFitHeight(170);
             imageView.setPreserveRatio(true);
             imageView.setPickOnBounds(true);
-            imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    final double sceneX = mouseEvent.getSceneX();
-                    final double sceneY = mouseEvent.getSceneY();
-                    for (int j = 1; j <= 8; ++j) {
-                        if (sceneX >= x[j] && sceneX <= x[j] + 170 && sceneY >= y[j] && sceneY <= y[j] + 170) {
-                            if (steps[0] == 1) {
-                                if (j == 1) {
-                                    label.setText("Вы выбрали правильный ответ!");
-                                    label.setVisible(true);
-                                } else {
-                                    label.setText("Вы выбрали НЕправильный ответ!");
-                                    label.setVisible(true);
-                                }
+            imageView.setOnMouseClicked(mouseEvent -> {
+                final double sceneX = mouseEvent.getSceneX();
+                final double sceneY = mouseEvent.getSceneY();
+                for (int j = 1; j <= 8; ++j) {
+                    if (sceneX >= x[j] && sceneX <= x[j] + 170 && sceneY >= y[j] && sceneY <= y[j] + 170) {
+                        if (steps[0] == 1) {
+                            if (j == 1) {
+                                label.setText("Вы выбрали правильный ответ!");
+                                label.setVisible(true);
+                            } else {
+                                label.setText("Вы выбрали НЕправильный ответ!");
+                                label.setVisible(true);
                             }
-                            if (steps[0] == 2) {
-                                if (j == 5) {
-                                    label.setText("Вы выбрали правильный ответ!");
-                                    label.setVisible(true);
-                                } else {
-                                    label.setText("Вы выбрали НЕправильный ответ!");
-                                    label.setVisible(true);
-                                }
-                            }
-                            steps[0]++;
-                            out.println(j + " \t" + (System.currentTimeMillis() - startTime) + " \t");
-                            for (ImageView i : images) {
-                                rootGroup.getChildren().remove(i);
-                            }
-                            images.clear();
-                            goNextStep(steps, images);
                         }
+                        if (steps[0] == 2) {
+                            if (j == 5) {
+                                label.setText("Вы выбрали правильный ответ!");
+                                label.setVisible(true);
+                            } else {
+                                label.setText("Вы выбрали НЕправильный ответ!");
+                                label.setVisible(true);
+                            }
+                        }
+                        steps[0]++;
+                        out.println(j + " \t" + (System.currentTimeMillis() - startTime) + " \t");
+                        for (ImageView i1 : images) {
+                            rootGroup.getChildren().remove(i1);
+                        }
+                        images.clear();
+                        goNextStep(steps, images);
                     }
                 }
             });
