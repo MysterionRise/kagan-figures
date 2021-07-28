@@ -1,6 +1,5 @@
 package org.mystic.kagan;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -9,7 +8,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -96,20 +94,18 @@ public class Controller {
                         if (steps[0] == 1) {
                             if (j == 1) {
                                 label.setText("Вы выбрали правильный ответ!");
-                                label.setVisible(true);
                             } else {
                                 label.setText("Вы выбрали НЕправильный ответ!");
-                                label.setVisible(true);
                             }
+                            label.setVisible(true);
                         }
                         if (steps[0] == 2) {
                             if (j == 5) {
                                 label.setText("Вы выбрали правильный ответ!");
-                                label.setVisible(true);
                             } else {
                                 label.setText("Вы выбрали НЕправильный ответ!");
-                                label.setVisible(true);
                             }
+                            label.setVisible(true);
                         }
                         steps[0]++;
                         out.println(j + " \t" + (System.currentTimeMillis() - startTime) + " \t");
