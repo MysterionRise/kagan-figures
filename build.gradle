@@ -17,8 +17,14 @@ jlink {
 }
 
 javafx {
-    version = "16"
+    version = "15"
     modules = ['javafx.controls', 'javafx.fxml']
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 
